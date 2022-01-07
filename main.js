@@ -20,7 +20,7 @@ function uploadimg() {
 	ctx.drawImage(img_imgTag, img_x, img_y, img_width, img_height);
 }
 
-window.addEventListener("keydown", my_keydown);33333333
+window.addEventListener("keydown", my_keydown);
 
 function my_keydown(e)
 {
@@ -28,27 +28,24 @@ function my_keydown(e)
 	console.log(keyPressed);
 	
 		if((keyPressed >=97 && keyPressed<=122)|| (keyPressed >=65 && keyPressed<=90))
-		alphabetkey();
-    document.getElementById("d1").innerHTML="You pressed an alphabet key.";
-	else{
-		otherkey();
-		document.getElementById("d1").innerHTML="You pressed symbol or other key";
-        
-        if((keyPressed >=48 && keyPressed<=57))
+        {
+            alphabetkey();
+    document.getElementById("d1").innerHTML="You pressed an alphabet key."; }
+	else if((keyPressed >=48 && keyPressed<=57)){
 		numberkey();
-    document.getElementById("d1").innerHTML="You pressed a number key.";
-	else{
-		otherkey();
-		document.getElementById("d1").innerHTML="You pressed symbol or other key";
+		document.getElementById("d1").innerHTML="You pressed number key"; }
+        else if((keyPressed >=37 && keyPressed<=40)){
+	arrowkey();
+    document.getElementById("d1").innerHTML="You pressed an arrow key."; }
+	else if ((keyPressed ==17)|| (keyPressed ==18) || (keyPressed ==27)){
+		specialkey();
+		document.getElementById("d1").innerHTML="You pressed Ctrl/Esc/Alt key";
 	}
-        if((keyPressed >=37 && keyPressed<=40))
-		arrowkey();
-    document.getElementById("d1").innerHTML="You pressed an arrow key.";
 	else{
 		otherkey();
 		document.getElementById("d1").innerHTML="You pressed symbol or other key";
 }
-
+}
 function aplhabetkey()
 {
 	img_image="Alpkey.png";
@@ -74,4 +71,3 @@ function otherkey()
 	img_image="otherkey.png";
 	add();
 }
-	
